@@ -1,15 +1,108 @@
 # 3D Force-Directed Graph
 
+[![NPM Version](https://img.shields.io/npm/v/3d-force-graph.svg)](https://www.npmjs.com/package/3d-force-graph)
+[![NPM Downloads](https://img.shields.io/npm/dm/3d-force-graph.svg)](https://www.npmjs.com/package/3d-force-graph)
+[![Build Status](https://img.shields.io/github/workflow/status/vasturiano/3d-force-graph/Node.js%20CI)](https://github.com/vasturiano/3d-force-graph/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 [![NPM](https://nodei.co/npm/3d-force-graph.png?compact=true)](https://nodei.co/npm/3d-force-graph/)
 
 <p align="center">
      <a href="https://vasturiano.github.io/3d-force-graph/example/large-graph/"><img width="80%" src="http://gist.github.com/vasturiano/02affe306ce445e423f992faeea13521/raw/preview.png"></a>
 </p>
 
-A web component to represent a graph data structure in a 3-dimensional space using a force-directed iterative layout.
-Uses [ThreeJS](https://github.com/mrdoob/three.js/)/WebGL for 3D rendering and either [d3-force-3d](https://github.com/vasturiano/d3-force-3d) or [ngraph](https://github.com/anvaka/ngraph.forcelayout3d) for the underlying physics engine.
+A web component to represent a graph data structure in a 3-dimensional space using a force-directed iterative layout. Perfect for visualizing complex networks, hierarchies, and relationships in an interactive 3D environment.
 
-Check out the examples:
+## ✨ Features
+
+- **3D Visualization**: Render graphs in immersive 3D space using WebGL
+- **Force-Directed Layout**: Automatic positioning using physics simulation
+- **Interactive Controls**: Pan, zoom, rotate, click, and drag nodes
+- **Customizable Styling**: Full control over node and link appearance
+- **Multiple Engines**: Choose between d3-force-3d or ngraph physics engines
+- **Real-time Updates**: Support for dynamic data changes and animations
+- **Rich API**: Comprehensive configuration options and event handlers
+- **Framework Agnostic**: Works with vanilla JS, React, Vue, Angular, and more
+
+## 🚀 Quick Start
+
+### Installation
+
+```bash
+# npm
+npm install 3d-force-graph
+
+# yarn
+yarn add 3d-force-graph
+
+# pnpm
+pnpm add 3d-force-graph
+```
+
+### Usage
+
+#### ES6 Modules
+```javascript
+import ForceGraph3D from '3d-force-graph';
+```
+
+#### CommonJS
+```javascript
+const ForceGraph3D = require('3d-force-graph');
+```
+
+#### CDN
+```html
+<script src="https://unpkg.com/3d-force-graph"></script>
+```
+
+#### Basic Example
+```javascript
+// Initialize the graph
+const myGraph = ForceGraph3D();
+
+// Sample data
+const graphData = {
+  nodes: [
+    { id: 'node1', name: 'Node 1', val: 10 },
+    { id: 'node2', name: 'Node 2', val: 20 },
+    { id: 'node3', name: 'Node 3', val: 15 }
+  ],
+  links: [
+    { source: 'node1', target: 'node2' },
+    { source: 'node2', target: 'node3' }
+  ]
+};
+
+// Render the graph
+myGraph(document.getElementById('graph-container'))
+  .graphData(graphData)
+  .nodeLabel('name')
+  .nodeVal('val')
+  .nodeColor('group');
+```
+
+## 🎯 Browser Compatibility
+
+- **Chrome**: ✅ Latest versions
+- **Firefox**: ✅ Latest versions  
+- **Safari**: ✅ Latest versions
+- **Edge**: ✅ Latest versions
+- **WebGL Support**: Required for 3D rendering
+
+## 📚 Documentation
+
+The library provides extensive customization options through its comprehensive API. See the [API Reference](#api-reference) section below for detailed documentation.
+
+### Physics Engines
+
+Uses [ThreeJS](https://github.com/mrdoob/three.js/) for 3D rendering and your choice of physics engine:
+- **[d3-force-3d](https://github.com/vasturiano/d3-force-3d)**: Based on D3's force simulation (default)
+- **[ngraph](https://github.com/anvaka/ngraph.forcelayout3d)**: Alternative high-performance engine
+
+## 🎮 Interactive Examples
+
+Explore these live examples to see the library in action:
 * [Basic](https://vasturiano.github.io/3d-force-graph/example/basic/) ([source](https://github.com/vasturiano/3d-force-graph/blob/master/example/basic/index.html))
 * [Asynchronous load](https://vasturiano.github.io/3d-force-graph/example/async-load/) ([source](https://github.com/vasturiano/3d-force-graph/blob/master/example/async-load/index.html))
 * [Larger graph (~4k elements)](https://vasturiano.github.io/3d-force-graph/example/large-graph/) ([source](https://github.com/vasturiano/3d-force-graph/blob/master/example/large-graph/index.html))
@@ -26,9 +119,68 @@ Check out the examples:
 * [Node collision detection](https://vasturiano.github.io/3d-force-graph/example/collision-detection/) ([source](https://github.com/vasturiano/3d-force-graph/blob/master/example/collision-detection/index.html))
 * [Add external objects to scene](https://vasturiano.github.io/3d-force-graph/example/scene/) ([source](https://github.com/vasturiano/3d-force-graph/blob/master/example/scene/index.html))
 
-See also the [VR version](https://github.com/vasturiano/3d-force-graph-vr) and the [2D canvas version](https://github.com/vasturiano/force-graph).
+## 🌟 Related Projects
 
-And check out the [React bindings](https://github.com/vasturiano/react-force-graph).
+Explore the entire force-graph ecosystem:
+
+### Framework Integrations
+- **[React Force Graph](https://github.com/vasturiano/react-force-graph)** - React components for 2D and 3D force-directed graphs
+- **[Vue Force Graph](https://github.com/vasturiano/vue-force-graph)** - Vue.js components 
+- **[Angular Force Graph](https://github.com/vasturiano/angular-force-graph)** - Angular components
+
+### Alternative Versions  
+- **[3D Force Graph VR](https://github.com/vasturiano/3d-force-graph-vr)** - Virtual Reality version using A-Frame
+- **[2D Force Graph](https://github.com/vasturiano/force-graph)** - 2D canvas version for better performance
+- **[AR Force Graph](https://github.com/vasturiano/3d-force-graph-ar)** - Augmented Reality version
+
+## ⚡ Performance Tips
+
+For optimal performance with large datasets:
+
+1. **Disable pointer interactions** for static visualizations:
+   ```javascript
+   myGraph.enablePointerInteraction(false);
+   ```
+
+2. **Use warmup ticks** to pre-calculate layouts:
+   ```javascript
+   myGraph.warmupTicks(100); // Run 100 simulation ticks before rendering
+   ```
+
+3. **Reduce node resolution** for simpler geometry:
+   ```javascript
+   myGraph.nodeResolution(4); // Lower resolution spheres
+   ```
+
+4. **Optimize link rendering** for large graphs:
+   ```javascript
+   myGraph.linkWidth(0); // Use thin lines instead of cylinders
+   ```
+
+5. **Set cooldown parameters** to stop simulation:
+   ```javascript
+   myGraph.cooldownTime(5000); // Stop after 5 seconds
+   ```
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**Graph not appearing:**
+- Ensure your container element has non-zero dimensions
+- Check that WebGL is supported in your browser
+- Verify your data structure matches the expected JSON format
+
+**Poor performance:**
+- Reduce the number of nodes/links
+- Disable pointer interactions if not needed
+- Lower node resolution
+- Use the ngraph engine for better performance with large graphs
+
+**Layout issues:**
+- Adjust force parameters using `d3Force()` method
+- Try different `numDimensions` settings
+- Experiment with warmup ticks for better initial layout
 
 ## Quick start
 
@@ -143,7 +295,10 @@ myGraph(<myDOMElement>)
 | <b>enableNavigationControls</b>([<i>boolean</i>]) | Getter/setter for whether to enable the trackball navigation controls used to move the camera using mouse interactions (rotate/zoom/pan). | `true` |
 
 ### Input JSON syntax
-```
+
+The expected data format for the graph:
+
+```json
 {
     "nodes": [ 
         { 
@@ -167,3 +322,73 @@ myGraph(<myDOMElement>)
     ]
 }
 ```
+
+## 🛠️ Development & Contributing
+
+### Development Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/vasturiano/3d-force-graph.git
+   cd 3d-force-graph
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Build the project:**
+   ```bash
+   npm run build
+   ```
+
+4. **Watch for changes during development:**
+   ```bash
+   npm run watch
+   ```
+
+### Building
+
+- **Development build:** `npm run build`
+- **Production build:** `npm run minify` 
+- **ES6 module:** `npm run build-module`
+- **Full build:** `npm run prepublish` (runs all build steps)
+
+### Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Vasco Asturiano**
+- GitHub: [@vasturiano](https://github.com/vasturiano)
+- Portfolio: [bl.ocks.org/vasturiano](http://bl.ocks.org/vasturiano)
+
+## 🙏 Acknowledgments
+
+- Built on top of the amazing [Three.js](https://threejs.org/) library
+- Physics simulation powered by [d3-force-3d](https://github.com/vasturiano/d3-force-3d) and [ngraph](https://github.com/anvaka/ngraph.forcelayout3d)
+- Inspired by the D3.js force-directed graph implementations
+
+## 🐛 Issues & Support
+
+If you encounter any issues or have questions:
+
+1. Check the [FAQ section](#-troubleshooting) above
+2. Search through existing [GitHub issues](https://github.com/vasturiano/3d-force-graph/issues)
+3. Create a new issue with a detailed description and reproduction steps
+
+---
+
+⭐ **Star this repository if you find it useful!**
