@@ -1,0 +1,16 @@
+{
+  "nodes": [
+    { "id": "alice", "name": "Alice", "val": 8, "color": "#ff6b6b" },
+    { "id": "bob", "name": "Bob", "val": 12, "color": "#4ecdc4" },
+    { "id": "charlie", "name": "Charlie", "val": 6, "color": "#45b7d1" },
+    { "id": "diana", "name": "Diana", "val": 15, "color": "#f9ca24" },
+    { "id": "eve", "name": "Eve", "val": 4, "color": "#6c5ce7" }
+  ],
+  "links": [
+    { "source": "alice", "target": "bob", "name": "friends", "value": 3 },
+    { "source": "bob", "target": "charlie", "name": "colleagues", "value": 2 },
+    { "source": "charlie", "target": "diana", "name": "neighbors", "value": 1 },
+    { "source": "diana", "target": "eve", "name": "family", "value": 5 },
+    { "source": "eve", "target": "alice", "name": "roommates", "value": 4 }
+  ]
+}

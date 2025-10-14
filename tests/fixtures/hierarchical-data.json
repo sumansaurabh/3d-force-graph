@@ -1,0 +1,29 @@
+{
+  "nodes": [
+    { "id": "root", "name": "CEO", "level": 0, "department": "executive" },
+    { "id": "cto", "name": "CTO", "level": 1, "department": "technology" },
+    { "id": "cfo", "name": "CFO", "level": 1, "department": "finance" },
+    { "id": "vp-eng", "name": "VP Engineering", "level": 2, "department": "technology" },
+    { "id": "vp-product", "name": "VP Product", "level": 2, "department": "technology" },
+    { "id": "controller", "name": "Controller", "level": 2, "department": "finance" },
+    { "id": "dev1", "name": "Senior Developer 1", "level": 3, "department": "technology" },
+    { "id": "dev2", "name": "Senior Developer 2", "level": 3, "department": "technology" },
+    { "id": "pm1", "name": "Product Manager 1", "level": 3, "department": "technology" },
+    { "id": "pm2", "name": "Product Manager 2", "level": 3, "department": "technology" },
+    { "id": "accountant", "name": "Senior Accountant", "level": 3, "department": "finance" }
+  ],
+  "links": [
+    { "source": "root", "target": "cto", "type": "reports-to" },
+    { "source": "root", "target": "cfo", "type": "reports-to" },
+    { "source": "cto", "target": "vp-eng", "type": "reports-to" },
+    { "source": "cto", "target": "vp-product", "type": "reports-to" },
+    { "source": "cfo", "target": "controller", "type": "reports-to" },
+    { "source": "vp-eng", "target": "dev1", "type": "reports-to" },
+    { "source": "vp-eng", "target": "dev2", "type": "reports-to" },
+    { "source": "vp-product", "target": "pm1", "type": "reports-to" },
+    { "source": "vp-product", "target": "pm2", "type": "reports-to" },
+    { "source": "controller", "target": "accountant", "type": "reports-to" },
+    { "source": "dev1", "target": "pm1", "type": "collaborates" },
+    { "source": "dev2", "target": "pm2", "type": "collaborates" }
+  ]
+}
