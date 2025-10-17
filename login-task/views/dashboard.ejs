@@ -1,0 +1,141 @@
+<div class="dashboard-container">
+    <div class="welcome-section">
+        <div class="welcome-card">
+            <div class="welcome-header">
+                <h1>
+                    <i class="fas fa-tachometer-alt"></i>
+                    स्वागत है, <%= user.username %>!
+                </h1>
+                <p class="welcome-subtitle">
+                    आप सफलतापूर्वक लॉगिन हैं। यहाँ आपका व्यक्तिगत डैशबोर्ड है।
+                </p>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-details">
+                    <h3><%= user.username %></h3>
+                    <p>उपयोगकर्ता ID: <%= user.id %></p>
+                    <p class="status">
+                        <i class="fas fa-circle" style="color: green;"></i>
+                        ऑनलाइन
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="dashboard-card">
+            <div class="card-header">
+                <i class="fas fa-user"></i>
+                <h3>प्रोफ़ाइल</h3>
+            </div>
+            <div class="card-content">
+                <p>अपनी प्रोफ़ाइल जानकारी देखें और अपडेट करें</p>
+                <a href="/profile" class="btn btn-primary">
+                    <i class="fas fa-eye"></i>
+                    प्रोफ़ाइल देखें
+                </a>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <i class="fas fa-cogs"></i>
+                <h3>सेटिंग्स</h3>
+            </div>
+            <div class="card-content">
+                <p>अकाउंट सेटिंग्स और सुरक्षा विकल्प</p>
+                <button class="btn btn-secondary" disabled>
+                    <i class="fas fa-wrench"></i>
+                    जल्द आएगा
+                </button>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Analytics</h3>
+            </div>
+            <div class="card-content">
+                <p>उपयोग की जानकारी और आंकड़े देखें</p>
+                <button class="btn btn-secondary" disabled>
+                    <i class="fas fa-chart-line"></i>
+                    जल्द आएगा
+                </button>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <i class="fas fa-bell"></i>
+                <h3>सूचनाएं</h3>
+            </div>
+            <div class="card-content">
+                <p>नई अपडेट और सूचनाएं देखें</p>
+                <div class="notification-list">
+                    <div class="notification-item">
+                        <i class="fas fa-info-circle"></i>
+                        <span>स्वागत है! आपका अकाउंट सक्रिय है।</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="api-section">
+        <div class="api-card">
+            <h3>
+                <i class="fas fa-code"></i>
+                API Testing
+            </h3>
+            <p>Protected API endpoints को test करें:</p>
+            <div class="api-buttons">
+                <button onclick="testProfileAPI()" class="btn btn-outline">
+                    <i class="fas fa-user"></i>
+                    GET /api/profile
+                </button>
+                <button onclick="testUsersAPI()" class="btn btn-outline">
+                    <i class="fas fa-users"></i>
+                    GET /api/users
+                </button>
+            </div>
+            <div id="api-result" class="api-result"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function testProfileAPI() {
+        try {
+            const response = await fetch('/api/profile');
+            const data = await response.json();
+            displayAPIResult('Profile API Response:', data);
+        } catch (error) {
+            displayAPIResult('Error:', { error: error.message });
+        }
+    }
+
+    async function testUsersAPI() {
+        try {
+            const response = await fetch('/api/users');
+            const data = await response.json();
+            displayAPIResult('Users API Response:', data);
+        } catch (error) {
+            displayAPIResult('Error:', { error: error.message });
+        }
+    }
+
+    function displayAPIResult(title, data) {
+        const resultDiv = document.getElementById('api-result');
+        resultDiv.innerHTML = `
+            <h4>${title}</h4>
+            <pre>${JSON.stringify(data, null, 2)}</pre>
+        `;
+        resultDiv.style.display = 'block';
+    }
+</script>

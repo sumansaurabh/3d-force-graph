@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> - PassportJS Auth Demo</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <h3>PassportJS Auth</h3>
+            </div>
+            <ul class="nav-menu">
+                <% if (typeof user !== 'undefined' && user) { %>
+                    <li class="nav-item">
+                        <a href="/dashboard" class="nav-link">
+                            <i class="fas fa-tachometer-alt"></i> डैशबोर्ड
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/profile" class="nav-link">
+                            <i class="fas fa-user"></i> प्रोफ़ाइल
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link logout">
+                            <i class="fas fa-sign-out-alt"></i> लॉगआउट
+                        </a>
+                    </li>
+                <% } else { %>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">
+                            <i class="fas fa-sign-in-alt"></i> लॉगिन
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/register" class="nav-link">
+                            <i class="fas fa-user-plus"></i> पंजीकरण
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Flash Messages -->
+        <% if (typeof success_msg !== 'undefined' && success_msg.length > 0) { %>
+            <div class="alert alert-success">
+                <i class="fas fa-check-circle"></i>
+                <%= success_msg %>
+            </div>
+        <% } %>
+
+        <% if (typeof error_msg !== 'undefined' && error_msg.length > 0) { %>
+            <div class="alert alert-error">
+                <i class="fas fa-exclamation-circle"></i>
+                <%= error_msg %>
+            </div>
+        <% } %>
+
+        <% if (typeof error !== 'undefined' && error.length > 0) { %>
+            <div class="alert alert-error">
+                <i class="fas fa-exclamation-circle"></i>
+                <%= error %>
+            </div>
+        <% } %>
+
+        <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+            <div class="alert alert-error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <ul>
+                    <% errors.forEach(function(error) { %>
+                        <li><%= error.msg %></li>
+                    <% }); %>
+                </ul>
+            </div>
+        <% } %>
+
+        <!-- Main Content Area -->
+        <div class="content-container">
+            <%- include(view) %>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 PassportJS Authentication Demo. सभी अधिकार सुरक्षित।</p>
+            <p>
+                <i class="fas fa-heart" style="color: red;"></i> 
+                से बनाया गया Node.js और PassportJS के साथ
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-hide alerts after 5 seconds
+        setTimeout(() => {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 300);
+            });
+        }, 5000);
+    </script>
+</body>
+</html>

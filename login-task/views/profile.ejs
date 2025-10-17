@@ -1,0 +1,154 @@
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-avatar">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        <div class="profile-info">
+            <h1>
+                <i class="fas fa-user"></i>
+                <%= user.username %> की प्रोफ़ाइल
+            </h1>
+            <p class="profile-subtitle">यहाँ आपकी व्यक्तिगत जानकारी है</p>
+        </div>
+    </div>
+
+    <div class="profile-content">
+        <div class="profile-card">
+            <div class="card-header">
+                <h2>
+                    <i class="fas fa-id-card"></i>
+                    व्यक्तिगत जानकारी
+                </h2>
+            </div>
+            
+            <div class="profile-details">
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <i class="fas fa-user"></i>
+                        उपयोगकर्ता नाम:
+                    </div>
+                    <div class="detail-value">
+                        <%= user.username %>
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <i class="fas fa-hashtag"></i>
+                        उपयोगकर्ता ID:
+                    </div>
+                    <div class="detail-value">
+                        <%= user.id %>
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <i class="fas fa-calendar-alt"></i>
+                        पंजीकरण तिथि:
+                    </div>
+                    <div class="detail-value">
+                        <%= new Date().toLocaleDateString('hi-IN') %>
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <i class="fas fa-circle"></i>
+                        स्थिति:
+                    </div>
+                    <div class="detail-value">
+                        <span class="status-badge status-active">
+                            <i class="fas fa-circle"></i>
+                            सक्रिय
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-actions">
+            <div class="actions-card">
+                <h3>
+                    <i class="fas fa-tools"></i>
+                    प्रोफ़ाइल एक्शन्स
+                </h3>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" disabled>
+                        <i class="fas fa-edit"></i>
+                        प्रोफ़ाइल एडिट करें
+                    </button>
+                    
+                    <button class="btn btn-secondary" disabled>
+                        <i class="fas fa-key"></i>
+                        पासवर्ड बदलें
+                    </button>
+                    
+                    <button class="btn btn-outline" disabled>
+                        <i class="fas fa-shield-alt"></i>
+                        सुरक्षा सेटिंग्स
+                    </button>
+                </div>
+                
+                <p class="actions-note">
+                    <i class="fas fa-info-circle"></i>
+                    ये सुविधाएं अभी development में हैं
+                </p>
+            </div>
+        </div>
+
+        <div class="profile-stats">
+            <div class="stats-card">
+                <h3>
+                    <i class="fas fa-chart-bar"></i>
+                    अकाउंट Statistics
+                </h3>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-sign-in-alt"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h4>1</h4>
+                            <p>कुल लॉगिन</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h4>अभी</h4>
+                            <p>अंतिम सक्रियता</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h4>उच्च</h4>
+                            <p>सुरक्षा स्तर</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-navigation">
+        <a href="/dashboard" class="btn btn-primary">
+            <i class="fas fa-tachometer-alt"></i>
+            डैशबोर्ड पर वापस जाएं
+        </a>
+        
+        <a href="/logout" class="btn btn-outline">
+            <i class="fas fa-sign-out-alt"></i>
+            लॉगआउट करें
+        </a>
+    </div>
+</div>

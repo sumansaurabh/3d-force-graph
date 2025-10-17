@@ -1,0 +1,75 @@
+<div class="form-container">
+    <div class="form-card">
+        <div class="form-header">
+            <h2>
+                <i class="fas fa-sign-in-alt"></i>
+                लॉगिन करें
+            </h2>
+            <p>अपने अकाउंट में प्रवेश करें</p>
+        </div>
+
+        <form action="/login" method="POST" class="auth-form">
+            <div class="form-group">
+                <label for="username">
+                    <i class="fas fa-user"></i>
+                    यूजरनेम
+                </label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    class="form-input" 
+                    placeholder="अपना यूजरनेम दर्ज करें"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">
+                    <i class="fas fa-lock"></i>
+                    पासवर्ड
+                </label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    class="form-input" 
+                    placeholder="अपना पासवर्ड दर्ज करें"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+                <i class="fas fa-sign-in-alt"></i>
+                लॉगिन करें
+            </button>
+        </form>
+
+        <div class="form-footer">
+            <p>
+                नया उपयोगकर्ता हैं? 
+                <a href="/register" class="link">
+                    <i class="fas fa-user-plus"></i>
+                    अकाउंट बनाएं
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="demo-info-box">
+    <div class="demo-card">
+        <h3>
+            <i class="fas fa-info-circle"></i>
+            डेमो अकाउंट
+        </h3>
+        <div class="demo-credentials">
+            <p><strong>यूजरनेम:</strong> <code>admin</code></p>
+            <p><strong>पासवर्ड:</strong> <code>password</code></p>
+        </div>
+        <p class="demo-note">
+            <i class="fas fa-lightbulb"></i>
+            ऊपर दी गई जानकारी का उपयोग करके लॉगिन कर सकते हैं
+        </p>
+    </div>
+</div>

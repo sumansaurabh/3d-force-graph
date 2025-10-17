@@ -1,0 +1,105 @@
+<div class="form-container">
+    <div class="form-card">
+        <div class="form-header">
+            <h2>
+                <i class="fas fa-user-plus"></i>
+                नया अकाउंट बनाएं
+            </h2>
+            <p>पंजीकरण करके सिस्टम का उपयोग शुरू करें</p>
+        </div>
+
+        <form action="/register" method="POST" class="auth-form">
+            <div class="form-group">
+                <label for="username">
+                    <i class="fas fa-user"></i>
+                    यूजरनेम
+                </label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    class="form-input" 
+                    placeholder="अपना यूजरनेम चुनें"
+                    value="<%= typeof username !== 'undefined' ? username : '' %>"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">
+                    <i class="fas fa-lock"></i>
+                    पासवर्ड
+                </label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    class="form-input" 
+                    placeholder="कम से कम 6 अक्षर का पासवर्ड"
+                    value="<%= typeof password !== 'undefined' ? password : '' %>"
+                    required
+                >
+                <div class="form-help">
+                    <small>
+                        <i class="fas fa-info-circle"></i>
+                        पासवर्ड कम से कम 6 अक्षर का होना चाहिए
+                    </small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password2">
+                    <i class="fas fa-lock"></i>
+                    पासवर्ड की पुष्टि करें
+                </label>
+                <input 
+                    type="password" 
+                    id="password2" 
+                    name="password2" 
+                    class="form-input" 
+                    placeholder="पासवर्ड दोबारा दर्ज करें"
+                    value="<%= typeof password2 !== 'undefined' ? password2 : '' %>"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+                <i class="fas fa-user-plus"></i>
+                अकाउंट बनाएं
+            </button>
+        </form>
+
+        <div class="form-footer">
+            <p>
+                पहले से अकाउंट है? 
+                <a href="/login" class="link">
+                    <i class="fas fa-sign-in-alt"></i>
+                    लॉगिन करें
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="registration-info">
+    <div class="info-card">
+        <h3>
+            <i class="fas fa-shield-alt"></i>
+            सुरक्षा जानकारी
+        </h3>
+        <ul class="security-features">
+            <li>
+                <i class="fas fa-check"></i>
+                आपका पासवर्ड bcrypt के साथ एन्क्रिप्ट किया जाता है
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                सुरक्षित सत्र प्रबंधन
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                डेटा सुरक्षा के लिए HTTPS समर्थन
+            </li>
+        </ul>
+    </div>
+</div>
