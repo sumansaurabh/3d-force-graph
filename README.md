@@ -1,5 +1,7 @@
 # 3D Force-Directed Graph
 
+[中文文档](README.zh-CN.md)
+
 [![NPM](https://nodei.co/npm/3d-force-graph.png?compact=true)](https://nodei.co/npm/3d-force-graph/)
 
 <p align="center">
