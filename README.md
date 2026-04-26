@@ -1,5 +1,7 @@
 # Remix Full-Stack Application
 
+[简体中文](./README.zh-CN.md)
+
 A full-stack web application built with Remix, React, TypeScript, and shadcn/ui.
 
 ## Getting Started
